@@ -25,6 +25,7 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
         }
         Conta novaconta = new Conta(nome, conta);
         contas.add(novaconta);
+        novaconta.mostrarAdministradores();
         return true;
     }
 
@@ -68,6 +69,7 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
         for (Conta c : contas) {
             if (c.getConta() == conta) {
                 c.depositar(valor);
+                c.extrato();
                 return true;
             }
         }

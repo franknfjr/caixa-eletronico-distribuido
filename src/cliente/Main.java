@@ -20,7 +20,7 @@ public class Main {
         System.out.println("6 - Saldo na tela");
         System.out.println("0 - Sair");
         System.out.println("Opção: ");
-
+        
     }
 
     public static void main(String[] args) throws RemoteException, NotBoundException, IOException {
@@ -105,7 +105,7 @@ public class Main {
                     System.out.println("Informe a conta");
                     conta = scanner.nextInt();
                     if (administrador.saldo(conta)) {
-                        System.out.println("aguardando a impressão . . . ");
+                        System.out.println("aguardando a impressão no servidor. . . ");
                     } else {
                         System.out.println("Não existe nenhuma conta para saldo. \n Tente outra conta");
                     }

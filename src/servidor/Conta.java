@@ -24,6 +24,12 @@ public class Conta {
         System.out.printf("Saldo atual: %.2f\n", this.saldo);
     }
 
+    public void mostrarAdministradores() {
+        System.out.println("$$$ ADMINISTRADOR $$$");
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Número da conta: " + this.conta);
+    }
+
     public boolean sacar(double valor) {
         if (saldo >= valor) {
             saldo -= valor;

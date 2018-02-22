@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) throws RemoteException, AlreadyBoundException {
         Registry registry = LocateRegistry.createRegistry(4000);
 
-        registry.bind("administrador", Administrador.getInstance());
+        registry.rebind("administrador", Administrador.getInstance());
+        System.out.println("Servidor.Main: Esperando ações do cliente . . .");
     }
 }
