@@ -18,7 +18,7 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
 
     @Override
     public boolean abrirConta(String nome, int conta) throws RemoteException {
-        System.out.println("Servidor recebeu uma chamada para abrirConta de um Administrador");
+        System.out.println("Servidor recebeu uma chamada para abrirConta de um Administrador\n");
         try {
             for (Conta c : contas) {
                 if (c.getConta() == conta) {
@@ -37,7 +37,7 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
 
     @Override
     public boolean fecharConta(int conta) throws RemoteException {
-        System.out.println("Servidor recebeu uma chamada para fecharConta de um Administrador");
+        System.out.println("Servidor recebeu uma chamada para fecharConta de um Administrador\n");
         try {
             for (Conta c : contas) {
                 if (c.getConta() == conta) {
@@ -54,7 +54,7 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
 
     @Override
     public boolean saque(int conta, double valor) throws RemoteException {
-        System.out.println("Servidor recebeu uma chamada para saque de um Administrador");
+        System.out.println("Servidor recebeu uma chamada para saque de um Administrador\n");
         try {
             for (Conta c : contas) {
                 if (c.getConta() == conta) {
@@ -70,7 +70,7 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
 
     @Override
     public boolean transferir(int conta1, int conta2, double valor) throws RemoteException {
-        System.out.println("Servidor recebeu uma chamada para transferir de um Administrador");
+        System.out.println("Servidor recebeu uma chamada para transferir de um Administrador\n");
         try {
             for (Conta c : contas) {
                 if (c.getConta() == conta1) {
@@ -90,7 +90,7 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
 
     @Override
     public boolean depositar(int conta, double valor) throws RemoteException {
-        System.out.println("Servidor recebeu uma chamada para depositar de um Administrador");
+        System.out.println("Servidor recebeu uma chamada para depositar de um Administrador\n");
         try {
             for (Conta c : contas) {
                 if (c.getConta() == conta) {
@@ -108,7 +108,7 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
 
     @Override
     public boolean saldo(int conta) throws RemoteException {
-        System.out.println("Servidor recebeu uma chamada para saldo de um Administrador");
+        System.out.println("Servidor recebeu uma chamada para saldo de um Administrador\n");
         try {
             for (Conta c : contas) {
                 if (c.getConta() == conta) {
