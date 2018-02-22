@@ -18,73 +18,109 @@ public final class Administrador extends UnicastRemoteObject implements Mensagei
 
     @Override
     public boolean abrirConta(String nome, int conta) throws RemoteException {
-        for (Conta c : contas) {
-            if (c.getConta() == conta) {
-                return false;
+        System.out.println("Servidor recebeu uma chamada para abrirConta de um Administrador");
+        try {
+            for (Conta c : contas) {
+                if (c.getConta() == conta) {
+                    return false;
+                }
             }
+            Conta novaconta = new Conta(nome, conta);
+            contas.add(novaconta);
+            novaconta.mostrarAdministradores();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        Conta novaconta = new Conta(nome, conta);
-        contas.add(novaconta);
-        novaconta.mostrarAdministradores();
-        return true;
     }
 
     @Override
     public boolean fecharConta(int conta) throws RemoteException {
-        for (Conta c : contas) {
-            if (c.getConta() == conta) {
-                contas.remove(c);
-                return true;
+        System.out.println("Servidor recebeu uma chamada para fecharConta de um Administrador");
+        try {
+            for (Conta c : contas) {
+                if (c.getConta() == conta) {
+                    contas.remove(c);
+                    return true;
+                }
             }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean saque(int conta, double valor) throws RemoteException {
-        for (Conta c : contas) {
-            if (c.getConta() == conta) {
-                return c.sacar(valor);
+        System.out.println("Servidor recebeu uma chamada para saque de um Administrador");
+        try {
+            for (Conta c : contas) {
+                if (c.getConta() == conta) {
+                    return c.sacar(valor);
+                }
             }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean transferir(int conta1, int conta2, double valor) throws RemoteException {
-        for (Conta c : contas) {
-            if (c.getConta() == conta1) {
-                for (Conta c2 : contas) {
-                    if (c2.getConta() == conta2) {
-                        return c.transferir(valor, c2);
+        System.out.println("Servidor recebeu uma chamada para transferir de um Administrador");
+        try {
+            for (Conta c : contas) {
+                if (c.getConta() == conta1) {
+                    for (Conta c2 : contas) {
+                        if (c2.getConta() == conta2) {
+                            return c.transferir(valor, c2);
+                        }
                     }
                 }
             }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean depositar(int conta, double valor) throws RemoteException {
-        for (Conta c : contas) {
-            if (c.getConta() == conta) {
-                c.depositar(valor);
-                c.extrato();
-                return true;
+        System.out.println("Servidor recebeu uma chamada para depositar de um Administrador");
+        try {
+            for (Conta c : contas) {
+                if (c.getConta() == conta) {
+                    c.depositar(valor);
+                    c.extrato();
+                    return true;
+                }
             }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean saldo(int conta) throws RemoteException {
-        for (Conta c : contas) {
-            if (c.getConta() == conta) {
-                c.extrato();
-                return true;
+        System.out.println("Servidor recebeu uma chamada para saldo de um Administrador");
+        try {
+            for (Conta c : contas) {
+                if (c.getConta() == conta) {
+                    c.extrato();
+                    return true;
+                }
             }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     public static MensageiroInterface getInstance() throws RemoteException {

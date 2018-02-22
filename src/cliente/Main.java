@@ -11,7 +11,7 @@ import servidor.Conta;
 
 public class Main {
 
-    private static void exibirMenu() throws IOException {
+    public static void exibirMenu() throws IOException {
         System.out.println("1 - Abrir uma Conta");
         System.out.println("2 - Fechar a Conta");
         System.out.println("3 - Depositar dinheiro na Conta");
@@ -31,6 +31,7 @@ public class Main {
         int conta, conta1, conta2;
         double valor;
         String op = "1";
+        try {
         while (!op.equals("0")) {
             exibirMenu();
             op = scanner.next();
@@ -113,5 +114,8 @@ public class Main {
             }
         }
         System.out.println("Sistema encerrado . . . ");
+    } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
